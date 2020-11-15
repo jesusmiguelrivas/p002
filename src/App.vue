@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Step 1:</h1>
+    <h1>Step 2:</h1>
     <code v-html="stepOneRange(dummySecuence)" />
   </div>
 </template>
@@ -19,11 +19,15 @@ export default {
       let result = secuence.map((element) => {
         let item = element + 1; 
         
+        let hasThree = (item).toString().search("3") != -1;
         let isMultipleOfThree = item % 3 == 0;
         let isMultipleOfFive = item % 5 == 0;
         let isMultipleOfFifteen = item % 15 == 0;
 
-        if(isMultipleOfFifteen){
+        if(hasThree){
+          return "lucky";
+        }
+        else if(isMultipleOfFifteen){
           return "fizzbuzz";
         }
         else if(isMultipleOfFive){
